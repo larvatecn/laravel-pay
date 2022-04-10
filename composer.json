@@ -1,6 +1,6 @@
 {
   "name": "larva/laravel-pay",
-  "description": "This is a transaction.",
+  "description": "This is a pay.",
   "keywords": [ "laravel", "pay", "payment", "larva" ],
   "type": "library",
   "license": "MIT",
