@@ -1,0 +1,43 @@
+{
+  "name": "larva/laravel-pay",
+  "description": "This is a transaction.",
+  "keywords": [ "laravel", "pay", "payment", "larva" ],
+  "type": "library",
+  "license": "MIT",
+  "require": {
+    "php": "^8.0.2",
+    "ext-json": "*",
+    "illuminate/bus": "^9.0",
+    "illuminate/events": "^9.0",
+    "illuminate/http": "^9.0",
+    "illuminate/queue": "^9.0",
+    "illuminate/database": "^9.0",
+    "illuminate/support": "^9.0",
+    "yansongda/pay": "^3.1"
+  },
+  "require-dev": {
+    "laravel/framework": "^9.0",
+    "friendsofphp/php-cs-fixer": "^3.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "Larva\\Pay\\": "src"
+    }
+  },
+  "scripts": {
+    "check-style": "vendor/bin/php-cs-fixer fix --using-cache=no --diff --config=.php-cs-fixer.php --dry-run --ansi",
+    "fix-style": "vendor/bin/php-cs-fixer fix --using-cache=no --config=.php-cs-fixer.php --ansi"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "3.x-dev"
+    },
+    "laravel": {
+      "providers": [
+        "Larva\\Pay\\PayServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "beta",
+  "prefer-stable": true
+}
