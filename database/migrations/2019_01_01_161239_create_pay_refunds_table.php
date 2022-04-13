@@ -25,7 +25,7 @@ return new class extends Migration
             $table->timestamp('succeed_at')->nullable()->comment('成功时间');
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('charge_id')->references('id')->on('transaction_charges');
+            $table->foreign('charge_id')->references('id')->on('pay_charges');
         });
     }
 
