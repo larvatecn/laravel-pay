@@ -59,7 +59,7 @@ class Transfer extends Model
      *
      * @var string
      */
-    protected $table = 'transaction_transfer';
+    protected $table = 'pay_transfer';
 
     /**
      * @var bool 关闭主键自增

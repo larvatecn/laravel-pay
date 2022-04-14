@@ -82,7 +82,7 @@ class Charge extends Model
      *
      * @var string
      */
-    protected $table = 'transaction_charges';
+    protected $table = 'pay_charges';
 
     /**
      * @var bool 主键自增

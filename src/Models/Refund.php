@@ -58,7 +58,7 @@ class Refund extends Model
      *
      * @var string
      */
-    protected $table = 'transaction_refunds';
+    protected $table = 'pay_refunds';
 
     /**
      * @var bool 关闭主键自增
