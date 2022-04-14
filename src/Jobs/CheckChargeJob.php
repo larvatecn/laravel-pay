@@ -7,7 +7,7 @@
 
 declare(strict_types=1);
 
-namespace Larva\Transaction\Jobs;
+namespace Larva\Pay\Jobs;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
