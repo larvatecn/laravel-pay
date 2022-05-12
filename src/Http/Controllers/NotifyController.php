@@ -28,8 +28,14 @@ class NotifyController
      */
     public function wechat(Request $request): ResponseInterface
     {
+        $psr = (new PsrHttpFactory(
+            new Psr17Factory(),
+            new Psr17Factory(),
+            new Psr17Factory(),
+            new Psr17Factory()
+        ))->createRequest($request);
         $pay = Pay::wechat();
-        $result = $pay->callback();
+        $result = $pay->callback($psr);
         if ($result->event_type == 'TRANSACTION.SUCCESS' && $result->resource_type == 'encrypt-resource') {//付款成功
             $charge = Pay::getCharge($result->resource['ciphertext']['out_trade_no']);
             $charge->markSucceeded($result->resource['ciphertext']['transaction_id'], $result->toArray());
@@ -54,8 +60,14 @@ class NotifyController
      */
     public function alipay(Request $request): ResponseInterface
     {
+        $psr = (new PsrHttpFactory(
+            new Psr17Factory(),
+            new Psr17Factory(),
+            new Psr17Factory(),
+            new Psr17Factory()
+        ))->createRequest($request);
         $pay = Pay::alipay();
-        $params = $pay->callback();
+        $params = $pay->callback($psr);
         $result = Pay::alipay()->find(['out_trade_no' => $params['out_trade_no']]);
         if (isset($result['trade_status']) && ($result['trade_status'] == 'TRADE_SUCCESS' || $result['trade_status'] == 'TRADE_FINISHED')) {
             $charge = Pay::getCharge($result['out_trade_no']);

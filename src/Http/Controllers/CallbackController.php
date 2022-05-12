@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace Larva\Pay\Http\Controllers;
 
 use Illuminate\Contracts\Routing\ResponseFactory;
+use Illuminate\Http\Request;
 use Larva\Pay\Pay;
 
 /**
@@ -37,9 +38,15 @@ class CallbackController
     /**
      * 支付宝PC和手机付款的回调页面
      */
-    public function alipay()
+    public function alipay(Request $request)
     {
-        $params = Pay::alipay()->callback();
+        $psr = (new PsrHttpFactory(
+            new Psr17Factory(),
+            new Psr17Factory(),
+            new Psr17Factory(),
+            new Psr17Factory()
+        ))->createRequest($request);
+        $params = Pay::alipay()->callback($psr);
         $result = Pay::alipay()->find(['out_trade_no' => $params['out_trade_no']]);
         if (isset($result['trade_status']) && ($result['trade_status'] == 'TRADE_SUCCESS' || $result['trade_status'] == 'TRADE_FINISHED')) {
             $charge = Pay::getCharge($result['out_trade_no']);
