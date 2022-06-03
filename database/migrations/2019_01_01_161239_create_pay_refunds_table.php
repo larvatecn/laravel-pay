@@ -26,6 +26,8 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('charge_id')->references('id')->on('pay_charges');
+
+            $table->comment('退款记录表');
         });
     }
 

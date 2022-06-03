@@ -29,6 +29,8 @@ return new class extends Migration
             $table->timestamp('succeed_at')->nullable()->comment('成功时间');
             $table->softDeletes();
             $table->timestamps();
+
+            $table->comment('付款记录表');
         });
     }
 
