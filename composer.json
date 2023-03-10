@@ -7,12 +7,12 @@
   "require": {
     "php": "^8.0.2",
     "ext-json": "*",
-    "illuminate/bus": "^9.0",
-    "illuminate/events": "^9.0",
-    "illuminate/http": "^9.0",
-    "illuminate/queue": "^9.0",
-    "illuminate/database": "^9.0",
-    "illuminate/support": "^9.0",
+    "illuminate/bus": "^9.0|^10.0",
+    "illuminate/events": "^9.0|^10.0",
+    "illuminate/http": "^9.0|^10.0",
+    "illuminate/queue": "^9.0|^10.0",
+    "illuminate/database": "^9.0|^10.0",
+    "illuminate/support": "^9.0|^10.0",
     "yansongda/pay": "^3.1",
     "nyholm/psr7": "^1.5",
     "symfony/psr-http-message-bridge": "^2.1"
