@@ -18,7 +18,7 @@
     "symfony/psr-http-message-bridge": "^2.1"
   },
   "require-dev": {
-    "laravel/framework": "^9.0",
+    "laravel/framework": "^9.0|^10.0",
     "friendsofphp/php-cs-fixer": "^3.8"
   },
   "autoload": {
