@@ -48,6 +48,22 @@ return [
             'mode' => Pay::MODE_NORMAL,
         ],
     ],
+    'unipay' => [
+        'default' => [
+            // 必填-商户号
+            'mch_id' => '777290058167151',
+            // 必填-商户公私钥
+            'mch_cert_path' => __DIR__.'/Cert/unipayAppCert.pfx',
+            // 必填-商户公私钥密码
+            'mch_cert_password' => '000000',
+            // 必填-银联公钥证书路径
+            'unipay_public_cert_path' => __DIR__.'/Cert/unipayCertPublicKey.cer',
+            // 必填
+            'return_url' => 'https://yansongda.cn/unipay/return',
+            // 必填
+            'notify_url' => 'https://yansongda.cn/unipay/notify',
+        ],
+    ],
     'http' => [ // optional
         'timeout' => 5.0,
         'connect_timeout' => 5.0,

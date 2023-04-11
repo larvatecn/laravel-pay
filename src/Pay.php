@@ -26,6 +26,7 @@ class Pay extends Facade
     //支持的交易通道
     public const CHANNEL_WECHAT = 'wechat';
     public const CHANNEL_ALIPAY = 'alipay';
+    public const CHANNEL_UNIONPAY = 'unipay';
 
     //交易类型
     public const TRADE_TYPE_WEB = 'web';
@@ -66,6 +67,16 @@ class Pay extends Facade
     }
 
     /**
+     * Return the facade accessor.
+     *
+     * @return Wechat
+     */
+    public static function union(): Wechat
+    {
+        return app('pay.union');
+    }
+
+    /**
      * 支持的网关
      *
      * @return string[]
@@ -75,6 +86,7 @@ class Pay extends Facade
         return [
             static::CHANNEL_WECHAT => '微信',
             static::CHANNEL_ALIPAY => '支付宝',
+            static::CHANNEL_UNIONPAY => '银联',
         ];
     }
 
@@ -107,6 +119,8 @@ class Pay extends Facade
             return static::wechat();
         } elseif ($channel == static::CHANNEL_ALIPAY) {
             return static::alipay();
+        } elseif ($channel == static::CHANNEL_UNIONPAY) {
+            return static::union();
         } else {
             throw new PayException('The channel does not exist.');
         }
