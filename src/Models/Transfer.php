@@ -126,7 +126,7 @@ class Transfer extends Model
      *
      * @return void
      */
-    public static function booted()
+    public static function booted(): void
     {
         static::creating(function (Transfer $model) {
             $model->id = $model->generateKey();

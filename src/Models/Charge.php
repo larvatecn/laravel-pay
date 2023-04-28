@@ -59,7 +59,7 @@ use Yansongda\Supports\Collection;
  * @property-read bool $reversed 是否已撤销
  * @property-read bool $closed 是否已关闭
  * @property-read string $stateDesc 状态描述
- * @property-read string $outTradeNo
+ * @property-read string $outTradeNo 网关支付流水号
  * @property-read int $refundableAmount 可退款金额
  *
  * @author Tongle Xu <xutongle@gmail.com>
@@ -164,7 +164,7 @@ class Charge extends Model
      *
      * @return void
      */
-    public static function booted()
+    public static function booted(): void
     {
         static::creating(function (Charge $model) {
             $model->id = $model->generateKey();
@@ -309,6 +309,7 @@ class Charge extends Model
      * 设置支付错误
      * @param string|int $code
      * @param string $desc
+     * @param array $extra
      * @return bool
      */
     public function markFailed($code, string $desc, array $extra = []): bool
@@ -349,6 +350,9 @@ class Charge extends Model
     /**
      * 关闭该笔收单
      * @return bool
+     * @throws ContainerException
+     * @throws InvalidParamsException
+     * @throws ServiceNotFoundException
      */
     public function close(): bool
     {
@@ -393,7 +397,7 @@ class Charge extends Model
     /**
      * 订单付款预下单
      */
-    public function prePay()
+    public function prePay(): void
     {
         $order = [
             'out_trade_no' => $this->outTradeNo,

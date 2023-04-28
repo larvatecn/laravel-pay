@@ -13,9 +13,9 @@
     "illuminate/queue": "^9.0|^10.0",
     "illuminate/database": "^9.0|^10.0",
     "illuminate/support": "^9.0|^10.0",
-    "yansongda/pay": "^3.1",
+    "yansongda/pay": "^3.2",
     "nyholm/psr7": "^1.5",
-    "symfony/psr-http-message-bridge": "^2.1"
+    "symfony/psr-http-message-bridge": "^2.2"
   },
   "require-dev": {
     "laravel/framework": "^9.0|^10.0",

@@ -11,7 +11,7 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('pay_charges', function (Blueprint $table) {
             $table->unsignedBigInteger('id')->primary()->comment('收款流水号');

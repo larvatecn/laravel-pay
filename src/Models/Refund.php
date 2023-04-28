@@ -126,7 +126,7 @@ class Refund extends Model
      *
      * @return void
      */
-    public static function booted()
+    public static function booted(): void
     {
         static::creating(function (Refund $model) {
             $model->id = $model->generateKey();

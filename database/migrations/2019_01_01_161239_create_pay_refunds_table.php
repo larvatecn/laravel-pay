@@ -11,7 +11,7 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('pay_refunds', function (Blueprint $table) {
             $table->unsignedBigInteger('id')->primary()->comment('退款流水号');
@@ -36,7 +36,7 @@ return new class extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('pay_refunds');
     }
